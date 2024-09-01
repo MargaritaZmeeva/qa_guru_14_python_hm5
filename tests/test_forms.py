@@ -3,7 +3,7 @@ import os
 
 
 def test_fill_form():
-    browser.open('')
+    browser.open('/automation-practice-form')
 
     browser.element('#firstName').type('ritaTest')
     browser.element('#lastName').type('ritaTest')
@@ -18,14 +18,14 @@ def test_fill_form():
     browser.element('.react-datepicker__day--005').click()
     browser.element('#subjectsInput').perform(command.js.scroll_into_view).type('comp').press_enter()
     browser.element('#hobbies-checkbox-2').perform(command.js.click)
-    browser.element('#uploadPicture').send_keys(os.path.abspath('/Users/margaritazmeeva/Desktop/test.pic.webp'))
+    browser.element('#uploadPicture').send_keys(os.path.abspath('test.pic.webp'))
     browser.element('#currentAddress').type('Test Address')
     browser.element('#state').element('#react-select-3-input').type('n').press_enter()
     browser.element('#city').element('#react-select-4-input').type('d').press_enter()
     browser.element('#submit').perform(command.js.click)
 
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
-    
+
     browser.element('.table').all('td').even.should(have.exact_texts('ritaTest ritaTest',
                                                                      'rita@gmail.com',
                                                                      'Female',
